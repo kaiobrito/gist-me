@@ -15,6 +15,10 @@ async function request<Response>(
 const getUsers = (filters: UsersFilters) =>
   request<UserSearchResponse>("/api/users", filters);
 
+const getUserGists = (username: string) =>
+  request<UserSearchResponse>(`/api/users/${username}`);
+
 export default {
   getUsers,
+  getUserGists,
 };
