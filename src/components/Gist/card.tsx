@@ -24,7 +24,9 @@ export const GistCard = ({ gist }: Props) => {
       file: gist.files,
     });
     const languages = new Set(
-      Object.values(gist.files ?? []).map((file) => file.language.name)
+      Object.values(gist.files ?? []).map(
+        (file) => file.language?.name ?? "Text"
+      )
     );
     return Array.from(languages);
   }, [gist]);
@@ -33,7 +35,7 @@ export const GistCard = ({ gist }: Props) => {
     <Card>
       <CardHeader
         title={
-          gist.description.length ? gist.description : gist.files?.[0].name
+          gist.description?.length ? gist.description : gist.files?.[0].name
         }
         action={
           <Button size="small" href={gist.url} target="_blank">

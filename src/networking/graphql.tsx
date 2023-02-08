@@ -5,7 +5,7 @@ export interface Gists {
 
 export interface Gist {
   id: string;
-  description: string;
+  description?: string;
   url: string;
   files?: FilesEntity[];
   comments: Comments;
@@ -14,7 +14,7 @@ export interface Gist {
 
 export interface FilesEntity {
   name: string;
-  language: Language;
+  language?: Language;
 }
 
 export interface Language {
