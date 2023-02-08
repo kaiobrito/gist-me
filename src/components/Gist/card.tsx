@@ -40,8 +40,14 @@ export const GistCard = ({ gist }: Props) => {
             <GitHubIcon />
           </Button>
         }
-      ></CardHeader>
+      />
       <CardContent>
+        {tags.map((tag, index) => (
+          <Chip key={index} label={tag} sx={{ mr: 1 }} />
+        ))}
+        {(gist.forks?.nodes?.length || 0) > 0 && (
+          <Typography variant="h6">Recent forks</Typography>
+        )}
         {gist.forks?.nodes?.map((fork, index) => (
           <Chip
             key={index}
@@ -50,16 +56,14 @@ export const GistCard = ({ gist }: Props) => {
             target={"_blank"}
             clickable
             href={fork.url}
+            sx={{ mr: 1 }}
             avatar={
               <Avatar alt={fork.owner.login} src={fork.owner.avatarUrl} />
             }
           />
         ))}
       </CardContent>
-      <CardActions>
-        {tags.map((tag, index) => (
-          <Chip key={index} label={tag} sx={{ mr: 1 }} />
-        ))}
+      <CardActions sx={{ justifyContent: "flex-end", pr: 4 }}>
         <Badge badgeContent={gist.comments.totalCount} color="primary">
           <ChatBubbleIcon />
         </Badge>
