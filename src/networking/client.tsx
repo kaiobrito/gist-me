@@ -1,4 +1,4 @@
-import { UsersFilters, UserSearchResponse } from "./types";
+import { UsersFilters, UserSearchResponse, GistResponse } from "./types";
 
 async function request<Response>(
   url: string,
@@ -16,7 +16,7 @@ const getUsers = (filters: UsersFilters) =>
   request<UserSearchResponse>("/api/users", filters);
 
 const getUserGists = (username: string) =>
-  request<UserSearchResponse>(`/api/users/${username}`);
+  request<GistResponse>(`/api/users/${username}/gists`);
 
 export default {
   getUsers,
