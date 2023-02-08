@@ -1,9 +1,13 @@
-import './globals.css'
+"use client";
+
+import AppTheme from "@/components/theme";
+import CssBaseline from "@mui/material/CssBaseline";
+import "./globals.css";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -12,7 +16,10 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <AppTheme>
+        <CssBaseline />
+        <body>{children}</body>
+      </AppTheme>
     </html>
-  )
+  );
 }
