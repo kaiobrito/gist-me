@@ -1,4 +1,4 @@
-import { GistType } from "@/networking/types";
+import { Gist } from "@/networking/types";
 import { Badge, Button, Chip } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,7 +9,7 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 import React from "react";
 
 type Props = {
-  gist: GistType;
+  gist: Gist;
 };
 
 export const GistCard = ({ gist }: Props) => {
@@ -30,17 +30,17 @@ export const GistCard = ({ gist }: Props) => {
       <CardContent>
         <Typography gutterBottom>{gist.description}</Typography>
         {tags.map((tag, index) => (
-          <Chip key={index} label={tag} sx={{ mr: 1 }} />
+          <Chip key={index} label={tag.name} sx={{ mr: 1 }} />
         ))}
       </CardContent>
       <CardActions>
-        {gist.html_url && (
-          <Button size="small" href={gist.html_url} target="_blank">
+        {gist.url && (
+          <Button size="small" href={gist.url} target="_blank">
             <GitHubIcon />
           </Button>
         )}
 
-        <Badge badgeContent={gist.comments} color="primary">
+        <Badge badgeContent={gist.comments.totalCount} color="primary">
           <ChatBubbleIcon />
         </Badge>
       </CardActions>

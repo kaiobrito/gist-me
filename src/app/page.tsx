@@ -73,7 +73,7 @@ export default function Home() {
       <Grid container>
         <Grid item xs={12} md={4}>
           <Stack spacing={1}>
-            {gists?.data.map((gist) => (
+            {gists?.user.gists.nodes?.map((gist) => (
               <GistCard key={gist.id} gist={gist} />
             ))}
           </Stack>
