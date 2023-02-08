@@ -1,6 +1,12 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const theme = createTheme({});
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#ff8100",
+    },
+  },
+});
 
 type Props = {
   children: React.ReactNode;

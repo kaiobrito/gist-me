@@ -9,7 +9,6 @@ import "./globals.css";
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Stack from "@mui/material/Stack";
 
 const client = new QueryClient();
 
@@ -26,8 +25,13 @@ export default function RootLayout({
         <QueryClientProvider client={client}>
           <body>
             <AppBar position="fixed">
-              <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Toolbar color="secondary">
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{ flexGrow: 1 }}
+                  color="white"
+                >
                   Gist me
                 </Typography>
               </Toolbar>
