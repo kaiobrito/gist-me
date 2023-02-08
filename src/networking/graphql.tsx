@@ -27,9 +27,10 @@ export interface Comments {
 
 export interface Forks {
   nodes?: {
+    url: string;
     owner: {
       login: string;
       avatarUrl: string;
     };
-  };
+  }[];
 }

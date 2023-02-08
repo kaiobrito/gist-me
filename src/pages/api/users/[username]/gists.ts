@@ -31,6 +31,7 @@ export default async function handler(
               }
               forks(last: 3) {
                 nodes {
+                  url
                   owner {
                     login
                     avatarUrl
