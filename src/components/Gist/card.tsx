@@ -1,8 +1,10 @@
 import { GistType } from "@/networking/types";
-import { Chip } from "@mui/material";
+import { Button, Chip } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import React from "react";
 
 type Props = {
@@ -30,6 +32,13 @@ export const GistCard = ({ gist }: Props) => {
           <Chip key={index} label={tag} sx={{ mr: 1 }} />
         ))}
       </CardContent>
+      <CardActions>
+        {gist.html_url && (
+          <Button size="small" href={gist.html_url} target="_blank">
+            <GitHubIcon />
+          </Button>
+        )}
+      </CardActions>
     </Card>
   );
 };
