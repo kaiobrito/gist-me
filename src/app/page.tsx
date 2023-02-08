@@ -53,7 +53,7 @@ export default function Home() {
   }, [push, selectedUser]);
 
   return (
-    <Stack sx={{ margin: 2 }} spacing={4}>
+    <Stack spacing={4}>
       <Autocomplete
         fullWidth
         options={(data?.data.items ?? []).map((user) => ({
@@ -70,9 +70,9 @@ export default function Home() {
           setSelectedUser(value ?? EMPTY_AUTOCOMPLETE);
         }}
       />
-      <Grid container spacing={2}>
+      <Grid container>
         {gists?.user.gists.nodes?.map((gist) => (
-          <Grid item xs={12} sm={6} md={4} key={gist.id}>
+          <Grid item xs={12} sm={6} md={4} key={gist.id} sx={{ p: 1 }}>
             <GistCard gist={gist} />
           </Grid>
         ))}
