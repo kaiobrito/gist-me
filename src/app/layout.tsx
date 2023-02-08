@@ -2,7 +2,10 @@
 
 import AppTheme from "@/components/theme";
 import CssBaseline from "@mui/material/CssBaseline";
+import { QueryClientProvider, QueryClient } from "react-query";
 import "./globals.css";
+
+const client = new QueryClient();
 
 export default function RootLayout({
   children,
@@ -11,14 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
       <AppTheme>
         <CssBaseline />
-        <body>{children}</body>
+        <QueryClientProvider client={client}>
+          <body>{children}</body>
+        </QueryClientProvider>
       </AppTheme>
     </html>
   );
