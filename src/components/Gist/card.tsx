@@ -1,10 +1,11 @@
 import { GistType } from "@/networking/types";
-import { Button, Chip } from "@mui/material";
+import { Badge, Button, Chip } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 import React from "react";
 
 type Props = {
@@ -38,6 +39,10 @@ export const GistCard = ({ gist }: Props) => {
             <GitHubIcon />
           </Button>
         )}
+
+        <Badge badgeContent={gist.comments} color="primary">
+          <ChatBubbleIcon />
+        </Badge>
       </CardActions>
     </Card>
   );
