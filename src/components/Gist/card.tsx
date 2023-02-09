@@ -20,9 +20,6 @@ export const GistCard = ({ gist }: Props) => {
     if (!gist.files) {
       return [];
     }
-    console.log({
-      file: gist.files,
-    });
     const languages = new Set(
       Object.values(gist.files ?? []).map(
         (file) => file.language?.name ?? "Text"
